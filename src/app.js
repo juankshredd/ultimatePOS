@@ -6,6 +6,7 @@ const myconnection = require('express-myconnection');
 const bodyParser = require('body-parser');
 const loginRoutes = require('./routes/login');
 const registerRoutes = require('./routes/registro')
+const inventarioRoutes = require('./routes/inventario');
 
 const app = express();
 app.set('port', 4000);
@@ -42,6 +43,8 @@ app.listen(app.get('port'), () => {
 app.use('/', loginRoutes);
 
 app.use('/', registerRoutes);
+
+app.use('/', inventarioRoutes);
 
 app.get('/', (req, res) => {
     res.render('login');
