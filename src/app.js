@@ -8,6 +8,7 @@ const loginRoutes = require('./routes/login');
 const registerRoutes = require('./routes/registro')
 const inventarioRoutes = require('./routes/inventario');
 
+
 const app = express();
 app.set('port', 4000);
 
