@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const loginRoutes = require('./routes/login');
 const registerRoutes = require('./routes/registro')
 const inventarioRoutes = require('./routes/inventario');
+const menuInicialRoutes = require('./routes/menu-inicial');
 
 
 const app = express();
@@ -46,6 +47,8 @@ app.use('/', loginRoutes);
 app.use('/', registerRoutes);
 
 app.use('/', inventarioRoutes);
+
+app.use('/', menuInicialRoutes);
 
 app.get('/', (req, res) => {
     res.render('login');

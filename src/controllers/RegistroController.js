@@ -20,15 +20,13 @@ function guardarCajero(req, res){
                     data.password = hash;
                     req.getConnection((err, conn) => {
                         conn.query('INSERT INTO cajero SET ?', [data], (err, rows) => {
-                            res.redirect('registro/registro-cajero')
+                            res.redirect('/registroCajero')
                         });
                     });
                 });
             }
         });
     });
-
-    
 };
 
 function guardarCliente(req, res){
@@ -37,7 +35,6 @@ function guardarCliente(req, res){
     req.getConnection((err, conn) => {
         conn.query('SELECT * FROM cliente WHERE Identificacion = ?', [data.identificacion], (err, userdata) => {
             if(userdata.length > 0) {
-                console.log('El cliente ya existe!')
                 res.render('registro/registro-cliente', {error: 'El cliente ya existe!'})
             }else {
                 bcrypt.hash(data.password, 12).then(hash => {
@@ -45,7 +42,7 @@ function guardarCliente(req, res){
                     console.log(data);
                     req.getConnection((err, conn) => {
                         conn.query('INSERT INTO cliente SET ?', [data], (err, rows) => {
-                            res.redirect('registro/registro-cliente')
+                            res.redirect('/registroCliente')
                         });
                     });
                 });
@@ -58,7 +55,7 @@ function guardarCliente(req, res){
                 if(err){
                     console.log(err)
                 }else
-                res.redirect('/login')
+                res.redirect('/registroCliente');
             })
         });
 };
