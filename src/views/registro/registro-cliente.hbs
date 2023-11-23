@@ -18,6 +18,10 @@
          <input type="phone" name="celular" placeholder="Celular" class="border border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 bg-gray-200 focus:bg-white" required>
         <input type="text" name="direccion" placeholder="Direccion" class="border border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 bg-gray-200 focus:bg-white">     
         <button type="submit" class="rounded-md bg-blue-300 w-full text-lg text-white font-semibold p-2 my-3 hover:bg-green-600 focus:bg-green-700">Registrar Cliente</button>
+
+        {{#if error}}
+        <p>{{error}}</p>
+        {{/if}}
     </form>
  </div>
 </body>
