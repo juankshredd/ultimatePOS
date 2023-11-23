@@ -51,5 +51,9 @@ app.use('/', inventarioRoutes);
 app.use('/', menuInicialRoutes);
 
 app.get('/', (req, res) => {
-    res.render('login');
+    if(req.session.loggedin == true) {
+        res.render('menu-inicial');
+    }else {
+        res.redirect('/login');
+    }
 });
