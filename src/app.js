@@ -8,6 +8,9 @@ const loginRoutes = require('./routes/login');
 const registerRoutes = require('./routes/registro')
 const inventarioRoutes = require('./routes/inventario');
 const menuInicialRoutes = require('./routes/menu-inicial');
+const logOutRoutes = require('./routes/logOut');
+const ventaRoutes = require('./routes/venta');
+const pagoRoutes = require('./routes/pago');
 
 
 const app = express();
@@ -50,9 +53,15 @@ app.use('/', inventarioRoutes);
 
 app.use('/', menuInicialRoutes);
 
+app.use('/', logOutRoutes);
+
+app.use('/', ventaRoutes);
+
+app.use('/', pagoRoutes);
+
 app.get('/', (req, res) => {
     if(req.session.loggedin == true) {
-        res.render('menu-inicial');
+        res.render('/menu-inicial');
     }else {
         res.redirect('/login');
     }

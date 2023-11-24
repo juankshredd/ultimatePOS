@@ -1,11 +1,10 @@
-function logOut(req, res){
-    if(req.session.loggedin == true) {
-         res.session.destroy();
-         res.redirect('/login');
+function logout(req, res){
+   if(req.session.loggedin == true) {
+         req.session.destroy();        
      }
-      
+   res.redirect('/');
  }
 
  module.exports = {
-    logOut
+    logout
  }

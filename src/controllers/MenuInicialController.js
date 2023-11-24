@@ -1,4 +1,5 @@
 function menuInicial(req, res){
+    console.log(req.body, res.body);
     res.render('menu/menu-inicial');
 }
 
@@ -18,5 +19,5 @@ module.exports = {
     irRegistroCajero,
     irRegistroCliente,
     irCrearVenta,
-    menuInicial
+    menuInicial,
 };
