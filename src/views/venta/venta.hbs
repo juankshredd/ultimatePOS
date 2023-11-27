@@ -9,13 +9,66 @@
     <title>Crear venta</title>
 </head>
 <body>
- <div class="block mx-auto my p-8 bg-white w-1/3 border border-gray-200 rounded-lg shadow-lg text-gray-800">
+ <section class="dislay-grid grid-cols-[2fr_1fr]">
+    <div class="block mx-auto my p-2 bg-white w-100% border border-gray-200 rounded-lg shadow-lg text-gray-800 dislay-grid grid-cols-[2fr_1fr]">
     <form action="" method="POST" class="mt-4">
-        <input type="text" placeholder="Identificacion" name="identificacion" class="border border-gray-200 w-25% text-lg placeholder-gray-500 p-2 my-2 bg-gray-200 focus:bg-white">
-        <button class="nav-item px 4" type="submit" >
-            <a href="/login" class="bg-blue-300 nav-link font-semibold border-2 hover:bg-green-700 py-3 px-4 rounded-md">Buscar</a>
-        </button>   
+        <div class="block mx-auto my p-2 bg-white w-1/3% text-gray-800 dislay-grid grid-cols-[2fr_1fr]">
+            <input type="text" placeholder="Identificacion" name="identificacion" class="border border-gray-200 w-25% text-lg placeholder-gray-500 p-2 my-2 bg-gray-200 focus:bg-white">
+            <button class="nav-item px 4" type="submit" >
+            <a href="#" class="bg-blue-300 nav-link font-semibold border-2 hover:bg-green-700 py-3 px-4 rounded-md">Buscar</a>
+        </button> 
+        </div> 
+        <div>
+            <label>Cliente: </label>
+            <input disabled type="text"  name="nombre_cliente" class="border border-gray-200 w-25% text-lg placeholder-gray-500 p-2 my-2 bg-gray-200 focus:bg-white"> 
+            <label>Cajero: </label>
+            <input disabled type="text"  name="nombre_cajero" class="border border-gray-200 w-25% text-lg placeholder-gray-500 p-2 my-2 bg-gray-200 focus:bg-white">
+        </div>
     </form>
+ </div>
+ </section>
+ <section>
+    <div class="block mx-auto my p-8 bg-white w-100% border border-gray-200 rounded-lg shadow-lg text-gray-800 dislay-grid grid-cols-[2fr_1fr]">
+    <input type="text" name="input_producto" placeholder="PLU / producto" class="border border-gray-200 w-25% text-lg placeholder-gray-500 p-2 my-2 bg-gray-200 focus:bg-white">
+    <table id="lista_venta" class="block mx-auto my p-2 bg-white w-100% border border-gray-200 rounded-lg shadow-lg text-gray-800">
+        <thead>
+            <tr>
+                <th class="border border-gray-400 px-2 py-2 bg-blue-100">PLU</th>
+                <th class="border border-gray-400 px-2 py-2 bg-blue-100">Descripcion</th>
+                <th class="border border-gray-400 px-2 py-2 bg-blue-100">Cantidad</th>
+                <th class="border border-gray-400 px-2 py-2 bg-blue-100">Precio unitario</th>
+                <th class="border border-gray-400 px-2 py-2 bg-blue-100">Precio total</th>
+            </tr>  
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+            </tr>
+        </tbody>
+    </table>
+ </div>
+ </section>
+ <div class="w-100% bg-white bg-white flex flex-col justify-end justify-items-end">
+    <button class="nav-item px 4 bg-red-300 nav-link font-semibold border-2 hover:bg-red-600 py-3 px-4 rounded-md w-1/5" type="submit" ><a href="/venta">Anular venta</a></button>
+    <button class="nav-item px 4 bg-green-300 nav-link font-semibold border-2 hover:bg-green-600 py-3 px-4 rounded-md w-1/5" type="submit" ><a href="#">Pagar</a></button>
+ </div>
+ <div class="bg-white flex flex-col justify-items-end w-100%">
+    <div>
+        <label>Subtotal</label>
+        <input type="text" placeholder="0" name="subtotal" class="border border-gray-200 w-25% text-lg placeholder-gray-500 p-2 my-2 bg-gray-200 focus:bg-white" disabled>
+    </div>
+    <div>
+        <label>Descuentos</label>
+        <input type="text" placeholder="0" name="descuentos" class="border border-gray-200 w-25% text-lg placeholder-gray-500 p-2 my-2 bg-gray-200 focus:bg-white" disabled>
+    </div>
+    <div>
+        <label>Total</label>
+        <input type="text" placeholder="0" name="total" class="border border-gray-200 w-25% text-lg placeholder-gray-500 p-2 my-2 bg-gray-200 focus:bg-white" disabled>
+    </div> 
  </div>
 </body>
 </html>
