@@ -7,6 +7,10 @@ const bodyParser = require('body-parser');
 const loginRoutes = require('./routes/login');
 const registerRoutes = require('./routes/registro')
 const inventarioRoutes = require('./routes/inventario');
+const menuInicialRoutes = require('./routes/menu-inicial');
+const logOutRoutes = require('./routes/logOut');
+const ventaRoutes = require('./routes/venta');
+const pagoRoutes = require('./routes/pago');
 
 
 const app = express();
@@ -47,6 +51,18 @@ app.use('/', registerRoutes);
 
 app.use('/', inventarioRoutes);
 
+app.use('/', menuInicialRoutes);
+
+app.use('/', logOutRoutes);
+
+app.use('/', ventaRoutes);
+
+app.use('/', pagoRoutes);
+
 app.get('/', (req, res) => {
-    res.render('login');
+    if(req.session.loggedin == true) {
+        res.render('/menu-inicial');
+    }else {
+        res.redirect('/login');
+    }
 });

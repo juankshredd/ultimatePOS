@@ -17,7 +17,16 @@
             <input type="text" name="precio" placeholder="Precio" class="border border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 bg-gray-200 focus:bg-white">
             <input type="text" name="stock" placeholder="Cantidad" class="border border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 bg-gray-200 focus:bg-white" required>     
             <button type="submit" class="rounded-md bg-blue-300 w-full text-lg text-white font-semibold p-2 my-3 hover:bg-green-600 focus:bg-green-700">Ingresar Producto</button>
+
+            {{#if error}}
+            <p class="text-red-500 font-bold text-lg-3">* {{error}}</p>
+            {{/if}}
         </form>
+        <div>
+            <li class="nav-item px 4 w-1/2 px-16 ml-auto flex justify-end pt-2  space-x-8">
+                <a href="/menu-inicial" class="bg-blue-300 nav-link font-semibold border-2 hover:bg-green-700 py-3 px-4 rounded-md">Menu</a>
+            </li>
+        </div>
     </div>
     </body>
 </html>
