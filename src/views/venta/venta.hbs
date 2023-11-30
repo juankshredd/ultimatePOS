@@ -9,8 +9,8 @@
     <title>Crear venta</title>
 </head>
 <body>
- <section class="dislay-grid grid-cols-[2fr_1fr]">
-    <div class="block mx-auto my p-2 bg-white w-100% border border-gray-200 rounded-lg shadow-lg text-gray-800 dislay-grid grid-cols-[2fr_1fr]">
+ <section class="">
+    <div class="block mx-auto my p-2 bg-white w-100% border border-gray-200 rounded-lg shadow-lg text-gray-800 dislay-grid">
         <form action="" method="POST" class="mt-4">
             <div class="block mx-auto my p-2 bg-white w-1/3% text-gray-800 flex justify-around ">
                 <input type="text" placeholder="Identificacion" name="id_cliente" class="border border-gray-200 w-25% text-lg placeholder-gray-500 p-2 my-2 bg-gray-200 focus:bg-white" required>
@@ -28,8 +28,9 @@
             </div> 
         </form>
     </div>
- </section>
-    <div class="block mx-auto my p-8 bg-white w-100% border border-gray-200 rounded-lg shadow-lg text-gray-800 dislay-grid grid-cols-[2fr_1fr]">
+ </section class="">
+ <div class="flex h-3/4">
+    <div class="object-left my p-2 bg-white w-3/4 border border-gray-200 rounded-lg shadow-lg text-gray-800">
         <input type="text" name="input_producto" placeholder="PLU / producto" class="border border-gray-200 w-25% text-lg placeholder-gray-500 p-2 my-2 bg-gray-200 focus:bg-white">
         <table id="lista_venta" class="block mx-auto my p-2 bg-white w-100% border border-gray-200 rounded-lg shadow-lg text-gray-800">
             <thead>
@@ -52,21 +53,52 @@
             </tbody>
         </table>
     </div>
-    <div class="bg-white flex flex-col w-100% grid-rows-1 place-items-end">
-        <div class="flex flex-col">
+    <div class="bg-white w-1/4 place-items-end h-1/2 justify-between">
+        <div class="flex flex-col h-1/2">
             <button class="nav-item px 4 bg-red-300 nav-link font-semibold border-2 hover:bg-red-600 py-3 px-4 " type="submit" ><a href="/venta">Anular venta</a></button>
-            <button class="nav-item px 4 bg-green-300 nav-link font-semibold border-2 hover:bg-green-600 py-3 px-4 " type="submit" ><a href="#">Pagar</a></button>
-        </div>   
-    </div>
-    <div class="bg-white flex flex-col w-100% grid-rows-1 place-items-end">
-        <div class="flex flex-col">  
+        </div>
+        <div class="flex flex-col h-1/2 justify-between">  
             <label>Subtotal</label>
             <input type="text" placeholder="0" name="subtotal" class="border border-gray-200 w-25% text-lg placeholder-gray-500 p-2 my-2 bg-gray-200 focus:bg-white" disabled>
             <label>Descuentos</label>
             <input type="text" placeholder="0" name="descuentos" class="border border-gray-200 w-25% text-lg placeholder-gray-500 p-2 my-2 bg-gray-200 focus:bg-white" disabled>
             <label>Total</label>
             <input type="text" placeholder="0" name="total" class="border border-gray-200 w-25% text-lg placeholder-gray-500 p-2 my-2 bg-gray-200 focus:bg-white" disabled>
+        </div> 
+    </div>
+</div>
+<div class="flex">
+    <!-- Div izquierdo con botones de denominacion de moneda-->
+    <div class="w-1/3 bg-gray-200 p-4 flex flex-col justify-between">
+        <div>
+            <button class="nav-item px 4 bg-green-300 nav-link font-semibold border-2 hover:bg-green-600 py-3 px-4 ">100.000</button>
+            <button class="nav-item px 4 bg-green-300 nav-link font-semibold border-2 hover:bg-green-600 py-3 px-4 ">50.000</button>
+            <button class="nav-item px 4 bg-green-300 nav-link font-semibold border-2 hover:bg-green-600 py-3 px-4 ">20.000</button>
+            <button class="nav-item px 4 bg-green-300 nav-link font-semibold border-2 hover:bg-green-600 py-3 px-4 ">10.000</button>
+            <button class="nav-item px 4 bg-green-300 nav-link font-semibold border-2 hover:bg-green-600 py-3 px-4 ">5.000</button>
+            <button class="nav-item px 4 bg-green-300 nav-link font-semibold border-2 hover:bg-green-600 py-3 px-4 ">2.000</button>
+            <button class="nav-item px 4 bg-green-300 nav-link font-semibold border-2 hover:bg-green-600 py-3 px-4 ">1.000</button>
+            <button class="nav-item px 4 bg-green-300 nav-link font-semibold border-2 hover:bg-green-600 py-3 px-4 ">500</button>
+            <button class="nav-item px 4 bg-green-300 nav-link font-semibold border-2 hover:bg-green-600 py-3 px-4 ">200</button>
+            <button class="nav-item px 4 bg-green-300 nav-link font-semibold border-2 hover:bg-green-600 py-3 px-4 ">100</button>
+            <button class="nav-item px 4 bg-green-300 nav-link font-semibold border-2 hover:bg-green-600 py-3 px-4 ">50</button>
+        </div>
+        <!-- Botones de medio de pago... lo habilito si lo veo necesario... por ahora no
+        <div class="flex justify-between">
+            <button class="bg-green-500 text-white p-2">Tarjeta</button>
+            <button class="bg-yellow-500 text-white p-2">Efectivo</button>
+        </div>
+        -->
+    </div>
+
+
+    <div class="w-2/3 bg-gray-300 p-4">
+        <!-- Botones en la parte inferior derecha  para cierre de pago y borrar el valor-->
+        <div class="flex justify-end">
+            <button class="nav-item px 4 bg-red-300 nav-link font-semibold border-2 hover:bg-red-600 py-3 px-4 ">Borrar Valor</button>
+            <button class="nav-item px 4 bg-green-300 nav-link font-semibold border-2 hover:bg-green-600 py-3 px-4 " type="submit" ><a href="#">Pagar</a></button>
         </div>
     </div>
+</div>
 </body>
 </html>
