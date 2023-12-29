@@ -24,8 +24,20 @@ function auth(req, res){
                         }else {
                             req.session.loggedin = true;
                             res.redirect('/menu-inicial');
+                            console.log(userdata)
+                            // workaround para guardar data del cajero logueado
+                            let usuario=userdata.Nombre
+                            console.log(usuario)
+                            console.log(JSON.stringify(userdata));
+                            /*cajeroData = function saveSession(data){
+                                sessionStorage.setItem('cajero', data);
+                                //  console.log(data)
+                                
+                            }*/
                         }
                     });
+                    //console.log(res.body); // data para tener en cuenta para localStorage
+
                 });
             }else {
                 res.render('login/index', {error: 'El usuario no existe!'})
@@ -34,13 +46,8 @@ function auth(req, res){
     });
 };
 
-function saveSession(data){
-    window.localStorage.setItem('cajero', data)
-}
-
 
 module.exports = {
     login,
     auth,
-    saveSession
 };

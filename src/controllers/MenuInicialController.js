@@ -1,5 +1,7 @@
+// const loggedUser = require('./LoginController')
+//console.log()
+
 function menuInicial(req, res){
-    console.log(req.body, res.body);
     res.render('menu/menu-inicial');
 }
 
