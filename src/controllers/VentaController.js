@@ -1,15 +1,10 @@
-const bcrypt = require('bcrypt')
-
 function venta(req, res){
     // Obtiene la info del cajero desde el objeto req.user
-    const cajero = JSON.stringify(req.user);
-    
-    // Renderiza la vista
-    res.render('venta/venta');
-    console.log(`Cajero logueado: ${cajero}`);
+    const data = JSON.parse(`${req.session.username}`);
 
-    //console.log(`Cajero logueado: ${cajero}`);
-    
+    const userData = data[0];
+    console.log(typeof userData, userData)
+    res.render('venta/venta', {usuario: userData}); 
 }
 
 function consultarCliente(req, res){
@@ -22,6 +17,7 @@ function consultarCliente(req, res){
                 userdata.forEach(element => {
                     console.log(`Cliente consultado: ${userdata}`);
                 });
+                res.render('venta/venta', {cliente})
             }else {
                 res.render('venta/venta', {error: 'El cliente no existe!'})
             }

@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt');
+const { response } = require('express');
 
 function login(req, res){
 
@@ -21,23 +22,14 @@ function auth(req, res){
                     bcrypt.compare(data.password, element.password, (err, isMatch) => {
                         if(!isMatch) {
                             res.render('login/index', {error: 'Usuario o contraseña incorrectos!'})
-                        }else {
+                        } else {
                             req.session.loggedin = true;
+                            req.session.username = JSON.stringify(userdata);
+                            //Guardamos en la sesión los datos del usuario logueado
                             res.redirect('/menu-inicial');
-                            console.log(userdata)
-                            // workaround para guardar data del cajero logueado
-                            let usuario=userdata.Nombre
-                            console.log(usuario)
-                            console.log(JSON.stringify(userdata));
-                            /*cajeroData = function saveSession(data){
-                                sessionStorage.setItem('cajero', data);
-                                //  console.log(data)
-                                
-                            }*/
+                            
                         }
                     });
-                    //console.log(res.body); // data para tener en cuenta para localStorage
-
                 });
             }else {
                 res.render('login/index', {error: 'El usuario no existe!'})
@@ -49,5 +41,5 @@ function auth(req, res){
 
 module.exports = {
     login,
-    auth,
+    auth
 };

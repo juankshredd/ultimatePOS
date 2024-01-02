@@ -1,8 +1,9 @@
-// const loggedUser = require('./LoginController')
-//console.log()
+const menuInicial = (req, res) => {
+   const data = JSON.parse(req.session.username);
 
-function menuInicial(req, res){
-    res.render('menu/menu-inicial');
+    const userData = data[0];
+    
+    res.render('menu/menu-inicial', {name: userData["Nombre"]});
 }
 
 function irRegistroCajero(){
