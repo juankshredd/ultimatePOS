@@ -4,6 +4,7 @@ function venta(req, res){
 
     const userData = data[0];
     console.log(typeof userData, userData)
+    // renderiza la pantalla y el nombre del cajero, el cual e usa en la vista en el campo cajero
     res.render('venta/venta', {usuario: userData}); 
 }
 
